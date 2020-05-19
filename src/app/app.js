@@ -4,7 +4,7 @@ import React from "react";
 import { hot } from "react-hot-loader";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import MainRouter from "../main-router";
+import MainRouter from "../router";
 
 const theme = createMuiTheme({
   //  direction: 'rtl',

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import AboutUs from "./pages/about-us/about-us";
-import ContactUs from "./pages/contact-us/contact-us";
 import Home from "./pages/home/home";
+import NotFound from "./pages/not-found/not-found";
 class MainRouter extends Component {
   componentDidMount() {
     const jssStyles = document.getElementById("jss-server-side");
@@ -16,8 +16,9 @@ class MainRouter extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/contactUs" component={ContactUs} />
           <Route path="/aboutUs" component={AboutUs} />
+          <Route path="/404" component={NotFound} />
+          <Redirect from="*" to="/404" />
         </Switch>
       </div>
     );
