@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app/app";
-import "./index.css";
+import "./index.scss";
 import * as serviceWorker from "./serviceWorker";
 import { configureStore } from "./store";
 const store = configureStore(window.__INITIAL_STATE__);
 
+/**
+ * start render dom
+ * * render the app file and send store as props
+ */
 ReactDOM.render(
   <React.StrictMode>
     <App store={store} />

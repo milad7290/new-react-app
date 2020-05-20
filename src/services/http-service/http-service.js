@@ -26,9 +26,6 @@ export function HttpService({
       const result = await fetch(fullUrl, options);
       const response = await result.json();
 
-      console.log("result", result);
-      console.log("response", response);
-
       return resolve(resultHandler({ result: response }));
     } catch (error) {
       console.log(`Failed response for ${url}: ${error}`);

@@ -6,7 +6,6 @@ function fetchPosts() {
     dispatch(setPostsLoading(true));
 
     return postsList().then((res) => {
-      console.log("res", res);
       dispatch(setPosts(res.result));
       dispatch(setPostsLoading(false));
     });
@@ -14,3 +13,4 @@ function fetchPosts() {
 }
 
 export { fetchPosts };
+
