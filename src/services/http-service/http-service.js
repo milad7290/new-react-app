@@ -1,3 +1,4 @@
+import axios from "axios";
 import { HttpMethod } from "./http-method";
 import { resultHandler } from "./result-handler";
 
@@ -18,13 +19,13 @@ export function HttpService({
   const options = {
     method,
     headers,
-    body: JSON.stringify(data),
+    data,
   };
 
   return new Promise(async (resolve) => {
     try {
-      const result = await fetch(fullUrl, options);
-      const response = await result.json();
+      const result = await axios(fullUrl, options);
+      const response = await result.data;
 
       return resolve(resultHandler({ result: response }));
     } catch (error) {
