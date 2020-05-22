@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { ErrorBoundary } from "../../helper/error-boundary/error-boundary";
+import TestComponent from "./components/test-component/test-component";
 import "./home.scss";
 import { fetchPosts } from "./redux/home-actions";
 import { getPosts } from "./redux/home-selector";
@@ -37,10 +39,15 @@ class Home extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>{postList.toString()}</p>
+          <ErrorBoundary>
+            <TestComponent
+              isLoading={postListLoading}
+              postList={postList}
+            ></TestComponent>
+          </ErrorBoundary>
           <button onClick={this.test}></button>
           <Button variant="contained" color="primary" disableElevation>
-            Disable elevation
+            تست تم متریال
           </Button>
           <Link to="/aboutUs">درباره ما</Link>
         </header>
